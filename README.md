@@ -18,7 +18,7 @@
         <img src="https://travis-ci.com/snowsoft/laravel-admin.svg?branch=master" alt="Build Status">
     </a>
     <a href="https://github.styleci.io/repos/483670305">
-        <img src="https://styleci.io/repos/48796179/shield" alt="StyleCI">
+        <img src="https://github.styleci.io/repos/483670305/shield" alt="StyleCI">
     </a>
     <a href="https://packagist.org/packages/snowsoft/laravel-admin">
         <img src="https://img.shields.io/packagist/l/snowsoft/laravel-admin.svg?maxAge=2592000&&style=flat-square" alt="Packagist">
@@ -38,8 +38,8 @@
 
 Requirements
 ------------
- - PHP >= 7.0.0
- - Laravel >= 5.5.0
+ - PHP >= 8.0.0
+ - Laravel >= 8.0
  - Fileinfo PHP Extension
 
 Installation
