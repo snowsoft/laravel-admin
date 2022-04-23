@@ -227,7 +227,7 @@ class Field implements Renderable
     {
         $field = $this;
 
-        return $this->as(function ($path) use ($server, $download, $field) {
+        return $this->as(function ($path) use ($server , $field) {
             $name = basename($path);
 
             $field->wrapped = false;

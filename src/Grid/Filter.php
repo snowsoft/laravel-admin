@@ -14,22 +14,22 @@ use Illuminate\Support\Facades\Input;
 /**
  * Class Filter.
  *
- * @method AbstractFilter     equal($column, $label = '')
- * @method AbstractFilter     notEqual($column, $label = '')
- * @method AbstractFilter     like($column, $label = '')
- * @method AbstractFilter     ilike($column, $label = '')
- * @method AbstractFilter     gt($column, $label = '')
- * @method AbstractFilter     lt($column, $label = '')
- * @method AbstractFilter     between($column, $label = '')
- * @method AbstractFilter     in($column, $label = '')
- * @method AbstractFilter     notIn($column, $label = '')
- * @method AbstractFilter     where($callback, $label)
- * @method AbstractFilter     date($column, $label = '')
- * @method AbstractFilter     day($column, $label = '')
- * @method AbstractFilter     month($column, $label = '')
- * @method AbstractFilter     year($column, $label = '')
- * @method AbstractFilter     hidden($name, $value)
- * @method AbstractFilter     group($column, $label = '', $builder = null)
+ * @method AbstractFilter equal($column, $label = '')
+ * @method AbstractFilter notEqual($column, $label = '')
+ * @method AbstractFilter like($column, $label = '')
+ * @method AbstractFilter ilike($column, $label = '')
+ * @method AbstractFilter gt($column, $label = '')
+ * @method AbstractFilter lt($column, $label = '')
+ * @method AbstractFilter between($column, $label = '')
+ * @method AbstractFilter in($column, $label = '')
+ * @method AbstractFilter notIn($column, $label = '')
+ * @method AbstractFilter where($callback, $label)
+ * @method AbstractFilter date($column, $label = '')
+ * @method AbstractFilter day($column, $label = '')
+ * @method AbstractFilter month($column, $label = '')
+ * @method AbstractFilter year($column, $label = '')
+ * @method AbstractFilter hidden($name, $value)
+ * @method AbstractFilter group($column, $label = '', $builder = null)
  */
 class Filter implements Renderable
 {

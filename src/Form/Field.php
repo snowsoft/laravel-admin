@@ -716,7 +716,6 @@ class Field implements Renderable
         return $this;
     }
 
-
     /**
      * Set the field automatically get focus.
      *
@@ -726,7 +725,6 @@ class Field implements Renderable
     {
         return $this->attribute('autofocus', true);
     }
-
 
     /**
      * Set the field as readonly mode.
@@ -959,8 +957,7 @@ class Field implements Renderable
     /**
      * @return string
      */
-    public function getLabelClass()
-    : string
+    public function getLabelClass(): string
     {
         return implode(' ', $this->labelClass);
     }
@@ -970,8 +967,7 @@ class Field implements Renderable
      *
      * @return self
      */
-    public function setLabelClass(array $labelClass)
-    : self
+    public function setLabelClass(array $labelClass): self
     {
         $this->labelClass = $labelClass;
 
@@ -1047,7 +1043,7 @@ class Field implements Renderable
      */
     public function render()
     {
-        if (! $this->shouldRender()) {
+        if (!$this->shouldRender()) {
             return '';
         }
 

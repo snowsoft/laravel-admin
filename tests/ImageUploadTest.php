@@ -179,7 +179,12 @@ class ImageUploadTest extends TestCase
         $path = __DIR__.'/assets/test.jpg';
 
         $file = new \Illuminate\Http\UploadedFile(
-            $path, 'test.jpg', 'image/jpeg', filesize($path), null, true
+            $path,
+            'test.jpg',
+            'image/jpeg',
+            filesize($path),
+            null,
+            true
         );
 
         $size = rand(10, 20);
@@ -215,7 +220,12 @@ class ImageUploadTest extends TestCase
         $path = __DIR__.'/assets/test.jpg';
 
         $file = new \Illuminate\Http\UploadedFile(
-            $path, 'test.jpg', 'image/jpeg', filesize($path), null, true
+            $path,
+            'test.jpg',
+            'image/jpeg',
+            filesize($path),
+            null,
+            true
         );
 
         $size = rand(10, 20);
