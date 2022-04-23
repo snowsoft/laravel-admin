@@ -71,10 +71,11 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if(file_exists(resource_path('views/admin')))
-         $this->loadViewsFrom(resource_path('views/admin'), 'admin');
-        else
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'admin');
+        if (file_exists(resource_path('views/admin'))) {
+            $this->loadViewsFrom(resource_path('views/admin'), 'admin');
+        } else {
+            $this->loadViewsFrom(__DIR__.'/../resources/views', 'admin');
+        }
 
         $this->ensureHttps();
 
