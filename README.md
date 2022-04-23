@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-     <a href="https://app.travis-ci.com/snowsoft/laravel-admin.svg?branch=master">
+     <a href="https://app.travis-ci.com/github/snowsoft/laravel-admin">
         <img src="https://travis-ci.com/snowsoft/laravel-admin.svg?branch=master" alt="Build Status">
     </a>
     <a href="https://github.styleci.io/repos/483670305">
