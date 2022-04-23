@@ -15,7 +15,7 @@
 
 <p align="center">
     <a href="https://travis-ci.org/z-song/laravel-admin">
-        <img src="https://travis-ci.org/z-song/laravel-admin.svg?branch=master" alt="Build Status">
+        <img src="https://travis-ci.org/snowsoft/laravel-admin.svg?branch=master" alt="Build Status">
     </a>
     <a href="https://styleci.io/repos/48796179">
         <img src="https://styleci.io/repos/48796179/shield" alt="StyleCI">
@@ -26,27 +26,14 @@
     <a href="https://packagist.org/packages/snowsoft/laravel-admin">
         <img src="https://img.shields.io/packagist/dt/snowsoft/laravel-admin.svg?style=flat-square" alt="Total Downloads">
     </a>
-    <a href="https://github.com/z-song/laravel-admin">
+    <a href="https://github.com/snowsoft/laravel-admin">
         <img src="https://img.shields.io/badge/Awesome-Laravel-brightgreen.svg?style=flat-square" alt="Awesome Laravel">
     </a>
-    <a href="#backers" alt="sponsors on Open Collective">
-        <img src="https://opencollective.com/laravel-admin/backers/badge.svg?style=flat-square" />
-    </a> 
-    <a href="https://www.paypal.me/zousong" alt="Paypal donate">
-        <img src="https://img.shields.io/badge/Donate-Paypal-green.svg?style=flat-square" />
-    </a> 
+ 
+ 
 </div>
 
-<p align="center">
-    Inspired by <a href="https://github.com/sleeping-owl/admin" target="_blank">SleepingOwlAdmin</a> and <a href="https://github.com/zofe/rapyd-laravel" target="_blank">rapyd-laravel</a>.
-</p>
-
-Sponsor
-------------
-
-<a href="https://ter.li/32ifxj">
-<img src="https://user-images.githubusercontent.com/1479100/102449272-dc356880-406e-11eb-9079-169c8c2af81c.png" alt="laravel-admin" width="200px;">
-</a>
+ 
 
 
 Requirements
@@ -118,27 +105,7 @@ The file `config/admin.php` contains an array of configurations, you can find th
 | [watermark](https://github.com/laravel-admin-extensions/watermark) | Text watermark for laravel-admin |~1.6 |
 | [google-authenticator](https://github.com/ylic/laravel-admin-google-authenticator) | Google authenticator |~1.6 |
 
-
-
-## Contributors
- This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
-<a href="graphs/contributors"><img src="https://opencollective.com/laravel-admin/contributors.svg?width=890&button=false" /></a>
- ## Backers
- Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/laravel-admin#backer)]
- <a href="https://opencollective.com/laravel-admin#backers" target="_blank"><img src="https://opencollective.com/laravel-admin/backers.svg?width=890"></a>
- ## Sponsors
- Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/laravel-admin#sponsor)]
- <a href="https://opencollective.com/laravel-admin/sponsor/0/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/laravel-admin/sponsor/1/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/laravel-admin/sponsor/2/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/laravel-admin/sponsor/3/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/laravel-admin/sponsor/4/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/laravel-admin/sponsor/5/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/laravel-admin/sponsor/6/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/laravel-admin/sponsor/7/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/laravel-admin/sponsor/8/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/laravel-admin/sponsor/9/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/9/avatar.svg"></a>
-
+ 
 Other
 ------------
 `laravel-admin` based on following plugins or services:
