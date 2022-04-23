@@ -58,7 +58,7 @@ class Select extends Presenter
      *
      * @return array
      */
-    protected function buildOptions() : array
+    protected function buildOptions(): array
     {
         if (is_string($this->options)) {
             $this->loadRemoteOptions($this->options);
@@ -213,7 +213,7 @@ EOT;
     /**
      * @return array
      */
-    public function variables() : array
+    public function variables(): array
     {
         return [
             'options' => $this->buildOptions(),
@@ -224,7 +224,7 @@ EOT;
     /**
      * @return string
      */
-    protected function getElementClass() : string
+    protected function getElementClass(): string
     {
         return str_replace('.', '_', $this->filter->getColumn());
     }
@@ -239,7 +239,7 @@ EOT;
      *
      * @return $this
      */
-    public function load($target, $resourceUrl, $idField = 'id', $textField = 'text') : self
+    public function load($target, $resourceUrl, $idField = 'id', $textField = 'text'): self
     {
         $column = $this->filter->getColumn();
 
@@ -273,7 +273,7 @@ EOT;
      *
      * @return mixed
      */
-    protected function getClass($target) : string
+    protected function getClass($target): string
     {
         return str_replace('.', '_', $target);
     }
