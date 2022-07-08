@@ -103,6 +103,13 @@ class Select extends Field
         return $this;
     }
 
+    public function type(string $type)
+    {
+        $this->config['type'] = $type;
+
+        return $this;
+    }
+
     /**
      * Load options for other select on change.
      *
