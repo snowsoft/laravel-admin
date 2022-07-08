@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany as HasManyRelation;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use function PHPUnit\Framework\isJson;
 
 class MultipleSelect extends Select
 {
@@ -23,6 +24,13 @@ class MultipleSelect extends Select
      *
      * @return string
      */
+
+
+    public static function isJson($string) {
+        json_decode($string);
+        return (json_last_error() == JSON_ERROR_NONE);
+    }
+
     protected function getOtherKey()
     {
         if ($this->otherKey) {
@@ -52,16 +60,23 @@ class MultipleSelect extends Select
      */
     public function fill($data)
     {
+
         if ($this->form && $this->form->shouldSnakeAttributes()) {
             $key = Str::snake($this->column);
         } else {
             $key = $this->column;
         }
 
-        $relations = Arr::get($data, $key);
+        if(is_array(Arr::get($data, $key)))
+            $relations = Arr::get($data, $key);
+        elseif(self::isJson(Arr::get($data, $key)))
+            $relations = json_decode(Arr::get($data, $key));
+        else
+            $relations = Arr::get($data, $key);
 
         if (is_string($relations)) {
             $this->value = explode(',', $relations);
+
         }
 
         if (!is_array($relations)) {
@@ -123,8 +138,15 @@ class MultipleSelect extends Select
 
     public function prepare($value)
     {
+
+
         $value = (array) $value;
 
-        return array_filter($value, 'strlen');
+        if(isset($this->config['type']) and $this->config['type']=="json")
+            return json_encode(array_filter($value, 'strlen'));
+        else
+            return array_filter($value, 'strlen');
+
+
     }
 }
