@@ -6,6 +6,9 @@ use Encore\Admin\Actions\RowAction;
 
 class Edit extends RowAction
 {
+
+    public $icon = 'fa fa-pencil';
+
     /**
      * @return array|null|string
      */

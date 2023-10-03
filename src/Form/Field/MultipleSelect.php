@@ -60,7 +60,6 @@ class MultipleSelect extends Select
      */
     public function fill($data)
     {
-
         if ($this->form && $this->form->shouldSnakeAttributes()) {
             $key = Str::snake($this->column);
         } else {

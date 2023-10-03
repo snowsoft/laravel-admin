@@ -78,6 +78,12 @@ class Show implements Renderable
     protected static $initCallback;
 
     /**
+     * @var bool
+     *
+     */
+    protected $twoColumn;
+
+    /**
      * Show constructor.
      *
      * @param Model $model
@@ -87,7 +93,7 @@ class Show implements Renderable
     {
         $this->model = $model;
         $this->builder = $builder;
-
+        $this->twoColumn = false;
         $this->initPanel();
         $this->initContents();
 
@@ -149,7 +155,7 @@ class Show implements Renderable
     /**
      * Add a model field to show.
      *
-     * @param string $name
+     * @param string $namef
      * @param string $label
      *
      * @return Field
@@ -158,7 +164,17 @@ class Show implements Renderable
     {
         return $this->addField($name, $label);
     }
+    /**
+     * Fieldları 2 sütuna ayırır.
+     * 
+     */
+    public function enableTwoColumn()
+    {
+        $this->twoColumn = true;
+    }
 
+
+    
     /**
      * Add multiple fields.
      *
@@ -210,6 +226,8 @@ class Show implements Renderable
         return $this->addRelation($name, $builder, $label);
     }
 
+
+
     /**
      * Add a model field to show.
      *
@@ -223,6 +241,9 @@ class Show implements Renderable
         $field = new Field($name, $label);
 
         $field->setParent($this);
+        if ($this->twoColumn == true) {
+            $field->enableTwoColumn();
+        }
 
         $this->overwriteExistingField($name);
 
@@ -230,6 +251,8 @@ class Show implements Renderable
             $this->fields->push($field);
         });
     }
+
+    
 
     /**
      * Add a relation panel to show.
@@ -433,7 +456,8 @@ class Show implements Renderable
             return false;
         }
 
-        if ($relation    instanceof HasOne
+        if (
+            $relation    instanceof HasOne
             || $relation instanceof BelongsTo
             || $relation instanceof MorphOne
         ) {
@@ -452,7 +476,8 @@ class Show implements Renderable
             );
         }
 
-        if ($relation    instanceof HasMany
+        if (
+            $relation    instanceof HasMany
             || $relation instanceof MorphMany
             || $relation instanceof BelongsToMany
             || $relation instanceof HasManyThrough

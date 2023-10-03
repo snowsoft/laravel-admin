@@ -325,7 +325,7 @@ trait HasAssets
     /**
      * @return string
      */
-    public function jQuery()
+    public  function jQuery()
     {
         return admin_asset(static::$jQuery);
     }

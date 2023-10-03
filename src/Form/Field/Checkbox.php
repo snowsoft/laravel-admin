@@ -3,6 +3,10 @@
 namespace Encore\Admin\Form\Field;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use function PHPUnit\Framework\isJson;
+
 
 class Checkbox extends MultipleSelect
 {
@@ -103,6 +107,11 @@ class Checkbox extends MultipleSelect
         return $this;
     }
 
+    public static function isJson($string) {
+        json_decode($string);
+        return (json_last_error() == JSON_ERROR_NONE);
+    }
+
     /**
      * Draw stacked checkboxes.
      *
@@ -146,4 +155,7 @@ SCRIPT;
 
         return parent::render();
     }
+
+
+
 }

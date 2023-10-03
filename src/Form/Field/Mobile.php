@@ -14,7 +14,7 @@ class Mobile extends Text
      * @var array
      */
     protected $options = [
-        'mask' => '99999999999',
+        'mask' => '0(999) 999 99 99',
     ];
 
     public function render()

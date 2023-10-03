@@ -163,6 +163,13 @@ class Model
     }
 
     /**
+     * Get Data
+     * @return array
+     */
+    public function getData(){
+        return $this->data;
+    }
+    /**
      * Get per-page number.
      *
      * @return int

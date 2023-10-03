@@ -134,8 +134,11 @@ abstract class RowAction extends GridAction
      */
     public function render()
     {
+        $linkClass = ($this->parent->getActionClass() != "Encore\Admin\Grid\Displayers\Actions\Actions") ? 'dropdown-item' : '';
+        $icon = $this-> getIcon();
+
         if ($href = $this->href()) {
-            return "<a href='{$href}'>{$this->name()}</a>";
+            return "<a href='{$href}' class='{$linkClass}'><span class='label' style='color:#000 !important'>{$icon} {$this->name()}</span></a>";
         }
 
         $this->addScript();
@@ -143,7 +146,7 @@ abstract class RowAction extends GridAction
         $attributes = $this->formatAttributes();
 
         return sprintf(
-            "<a data-_key='%s' href='javascript:void(0);' class='%s' {$attributes}>%s</a>",
+            "<a data-_key='%s' href='javascript:void(0);' class='%s {$linkClass}' {$attributes}><span class='label' style='color:#000 !important'>{$icon} %s</span></a>",
             $this->getKey(),
             $this->getElementClass(),
             $this->asColumn ? $this->display($this->row($this->column->getName())) : $this->name()

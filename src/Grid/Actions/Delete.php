@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class Delete extends RowAction
 {
+    public $icon = 'fa fa-trash-o';
     /**
      * @return array|null|string
      */
@@ -45,6 +46,14 @@ class Delete extends RowAction
      */
     public function dialog()
     {
-        $this->question(trans('admin.delete_confirm'), '', ['confirmButtonColor' => '#d33']);
+        $options  = [
+            "type" => "warning",
+            "showCancelButton"=> true,
+            "confirmButtonColor"=> "#DD6B55",
+            "confirmButtonText"=> __('confirm'),
+            "showLoaderOnConfirm"=> true,
+            "cancelButtonText"=>  __('cancel'),
+        ];
+        $this->confirm('Talebi Silmek İstiyor musunuz?', '', $options);
     }
 }

@@ -577,6 +577,8 @@ class Grid
         $this->builded = true;
     }
 
+  
+
     /**
      * Build the grid rows.
      *

@@ -69,6 +69,12 @@ class Field implements Renderable
     protected $showAs = [];
 
     /**
+     * 
+     * @var bool
+     */
+    public $twoColumn;
+
+    /**
      * Parent show instance.
      *
      * @var Show
@@ -114,6 +120,7 @@ class Field implements Renderable
     public function __construct($name = '', $label = '')
     {
         $this->name = $name;
+        $this->twoColumn = false;
 
         $this->label = $this->formatLabel($label);
 
@@ -221,7 +228,7 @@ class Field implements Renderable
                 if (url()->isValidUrl($path)) {
                     $src = $path;
                 } elseif ($server) {
-                    $src = $server.$path;
+                    $src = $server . $path;
                 } else {
                     $disk = config('admin.upload.disk');
 
@@ -257,7 +264,7 @@ class Field implements Renderable
                 if (url()->isValidUrl($path)) {
                     $image = $path;
                 } elseif ($server) {
-                    $image = $server.$path;
+                    $image = $server . $path;
                 } else {
                     $disk = config('admin.upload.disk');
 
@@ -299,12 +306,12 @@ class Field implements Renderable
             if (url()->isValidUrl($path)) {
                 $url = $path;
             } elseif ($server) {
-                $url = $server.$path;
+                $url = $server . $path;
             } else {
                 $storage = Storage::disk(config('admin.upload.disk'));
                 if ($storage->exists($path)) {
                     $url = $storage->url($path);
-                    $size = ($storage->size($path) / 1000).'KB';
+                    $size = ($storage->size($path) / 1000) . 'KB';
                 }
             }
 
@@ -425,7 +432,7 @@ HTML;
             if (json_last_error() == 0) {
                 $field->border = false;
 
-                return '<pre><code>'.json_encode($content, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE).'</code></pre>';
+                return '<pre><code>' . json_encode($content, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . '</code></pre>';
             }
 
             return $value;
@@ -645,6 +652,7 @@ HTML;
             'label'     => $this->getLabel(),
             'wrapped'   => $this->border,
             'width'     => $this->width,
+            'twoColumn' => $this->twoColumn,
         ];
     }
 
@@ -665,5 +673,14 @@ HTML;
         }
 
         return view($this->view, $this->variables());
+    }
+    /**
+     * 
+     * İki sütunu etkileştirme.
+     * 
+     */
+    public function enableTwoColumn()
+    {
+        $this->twoColumn = true;
     }
 }

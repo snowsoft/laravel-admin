@@ -6,7 +6,9 @@ use Encore\Admin\Actions\RowAction;
 
 class Show extends RowAction
 {
-    /**
+
+    public $icon = 'fa fa-eye';
+       /**
      * @return array|null|string
      */
     public function name()

@@ -328,13 +328,13 @@ class Form implements Renderable
         if ($validationMessages = $this->validationMessages($data)) {
             return $this->responseValidationError($validationMessages);
         }
-
+       
         if (($response = $this->prepare($data)) instanceof Response) {
             return $response;
         }
 
         DB::transaction(function () {
-            $inserts = $this->prepareInsert($this->updates);
+           $inserts = $this->prepareInsert($this->updates);
 
             foreach ($inserts as $column => $value) {
                 $this->model->setAttribute($column, $value);

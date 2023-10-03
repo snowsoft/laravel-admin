@@ -1,16 +1,17 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace Encore\Admin\Grid\Displayers\Actions;
 
 use Encore\Admin\Actions\RowAction;
 use Encore\Admin\Admin;
 use Encore\Admin\Grid\Actions\Delete;
 use Encore\Admin\Grid\Actions\Edit;
 use Encore\Admin\Grid\Actions\Show;
+use Encore\Admin\Grid\Displayers\AbstractDisplayer;
 
-class DropdownActions extends Actions
+class Actions extends AbstractDisplayer
 {
-    protected $view = 'admin::grid.actions.dropdown';
+    protected $view = 'admin::grid.actions.actions';
 
     /**
      * @var array
@@ -22,20 +23,104 @@ class DropdownActions extends Actions
      */
     protected $default = [];
 
-
-
-    public $showLabels = true;
-
-    public function showLabels($r = true)
-    {
-        return $this->showLabels = $r;
-    }
-
-
     /**
      * @var array
      */
     protected $defaultClass = [Edit::class, Show::class, Delete::class];
+
+    /**
+     * @var string
+     */
+    protected $resource;
+
+    /**
+     * Disable all actions.
+     *
+     * @var bool
+     */
+    protected $disableAll = false;
+
+    /**
+     * Show hide labels.
+     *
+     * @var bool
+     */
+    public $showLabels = false;
+
+    public $icon = 'icon-file';
+
+
+    /**
+     * Show hide actionsColumn.
+     *
+     * @var bool
+     */
+    public $hideActionsColumn = false;
+
+    /**
+     * diy translate.
+     *
+     * @var array
+     */
+    protected $trans = [];
+
+    /**
+     * Get route key name of current row.
+     *
+     * @return mixed
+     */
+    public function getRouteKey()
+    {
+        return $this->row->{$this->row->getRouteKeyName()};
+    }
+
+    /**
+     * Disable all actions.
+     *
+     * @return $this
+     */
+    public function disableAll()
+    {
+        $this->disableAll = true;
+
+        return $this;
+    }
+
+    /**
+     * Show hide Labels.
+     *
+     * @return $this
+     */
+    public function showLabels($default = true)
+    {
+        $this->showLabels = $default;
+
+        return $this;
+    }
+
+    /**
+     * Set resource of current resource.
+     *
+     * @param $resource
+     *
+     * @return $this
+     */
+    public function setResource($resource)
+    {
+        $this->resource = $resource;
+
+        return $this;
+    }
+
+    /**
+     * Get resource of current resource.
+     *
+     * @return string
+     */
+    public function getResource()
+    {
+        return $this->resource ?: parent::getResource();
+    }
 
     /**
      * @param RowAction $action
@@ -47,6 +132,20 @@ class DropdownActions extends Actions
         $this->prepareAction($action);
 
         array_push($this->custom, $action);
+
+        return $this;
+    }
+
+    /**
+     * @param RowAction $action
+     *
+     * @return $this
+     */
+    public function pre(RowAction $action)
+    {
+        $this->prepareAction($action);
+
+        array_unshift($this->default, $action);
 
         return $this;
     }
@@ -64,6 +163,21 @@ class DropdownActions extends Actions
 
             array_push($this->default, $action);
         }
+    }
+
+
+    /**
+     * Get batch icon.
+     *
+     * @return string
+     */
+    public function getIcon()
+    {
+        if (empty($this->icon)) {
+            return '';
+        }
+
+        return "<i class='{$this->icon}'></i>";
     }
 
     /**
@@ -84,6 +198,11 @@ class DropdownActions extends Actions
      * @return $this
      */
     public function disableView(bool $disable = true)
+    {
+        $this->disableShow($disable);
+    }
+
+    public function disableShow(bool $disable = true)
     {
         if ($disable) {
             array_delete($this->defaultClass, Show::class);
@@ -148,8 +267,11 @@ class DropdownActions extends Actions
         $this->prependDefaultActions();
 
         $variables = [
-            'default' => $this->default,
-            'custom'  => $this->custom,
+            'default'           => $this->default,
+            'custom'            => $this->custom,
+            'showLabels'        => $this->showLabels,
+            'hideActionsColumn' => $this->hideActionsColumn,
+            'key'               => $this->getRouteKey(),
         ];
 
         if (empty($variables['default']) && empty($variables['custom'])) {

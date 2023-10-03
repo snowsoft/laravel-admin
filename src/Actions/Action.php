@@ -77,6 +77,11 @@ abstract class Action implements Renderable
     protected $interactor;
 
     /**
+     * @var string
+     */
+    public $icon = 'icon-file';
+
+    /**
      * @var array
      */
     protected static $selectors = [];
@@ -111,6 +116,17 @@ abstract class Action implements Renderable
             throw new \Exception('Can only define one of the methods in `form` and `dialog`');
         }
     }
+
+
+    public function getIcon()
+    {
+        if (empty($this->icon)) {
+            return '';
+        }
+
+        return "<i class='{$this->icon}'></i>";
+    }
+
 
     /**
      * Get batch action title.
