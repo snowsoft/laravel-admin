@@ -20,7 +20,7 @@
     "require-dev": {
         "laravel/laravel": ">=5.5",
         "snowsoft/faker": "v0.0.1",
-        "intervention/image": "~2.3|~3.7",
+        "intervention/image": "~2.3|~3.7|~4.0",
         "laravel/browser-kit-testing": "^6.0|^7.2",
         "spatie/phpunit-watcher": "^1.24.0"
     },
